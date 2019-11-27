@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour
                 player.update_sprite();
             }
 
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
