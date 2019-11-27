@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public PlayerController player; 
-    public string color_tag;
-    public string shape_tag;
+
+    public int color_tag;
+    public int shape_tag;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -23,16 +23,19 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         var go = collision.gameObject;
+        GameObject player = GameObject.Find("Player");
+
         if(go.tag == "ennemi"){
-            EnnemiController ennemi = go.GetComponent<EnnemiController>();
+            SpriteController ennemi = go.GetComponent<SpriteController>();
             if( ennemi.color_tag == color_tag || ennemi.shape_tag == shape_tag){          
                 Destroy(go);
-                player.color_tag = ennemi.color_tag;
-                player.shape_tag = ennemi.shape_tag;
-                player.update_sprite();
+                player.GetComponent<SpriteController>().color_tag = ennemi.color_tag;
+                player.GetComponent<SpriteController>().shape_tag = ennemi.shape_tag;
+                player.GetComponent<SpriteController>().update_sprite();
             }
 
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
     }
 }
