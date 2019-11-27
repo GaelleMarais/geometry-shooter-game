@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     Color red;
     Color blue;
 
-    public Mesh square;
-    public Mesh sphere;
+    public Sprite square;
+    public Sprite circle;
 
     // Start is called before the first frame update
     void Start()
@@ -88,27 +88,23 @@ public class PlayerController : MonoBehaviour
 
     public void update_sprite(){
 
-        Material mat = this.GetComponent<Renderer>().materials[0];
+        SpriteRenderer sprite_renderer = this.GetComponent<SpriteRenderer>();
 
         switch(color_tag){
             case "blue":
-                mat.SetColor("_Color", blue);
+                sprite_renderer.color = blue;
                 break;
             case "red":
-                mat.SetColor("_Color", red);
+                sprite_renderer.color = red;
                 break;
         }
 
         switch(shape_tag){
             case "square":
-                Debug.Log("square");
-                this.GetComponent<MeshFilter>().mesh = square;
-
+                sprite_renderer.sprite = square;
                 break;
-            case "sphere":
-                Debug.Log("sphere");
-                //this.GetComponent<MeshFilter>().mesh = sphere;
-                // Cynlinder not oriented bc of rotation transform.up
+            case "circle":
+                sprite_renderer.sprite = circle;
                 break;
         }
     }

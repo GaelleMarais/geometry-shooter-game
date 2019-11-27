@@ -23,8 +23,6 @@ public class BulletController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         var go = collision.gameObject;
-
-
         if(go.tag == "ennemi"){
             EnnemiController ennemi = go.GetComponent<EnnemiController>();
             if( ennemi.color_tag == color_tag || ennemi.shape_tag == shape_tag){          
