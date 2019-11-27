@@ -31,6 +31,8 @@ public class BulletController : MonoBehaviour
                 player.shape_tag = ennemi.shape_tag;
                 player.update_sprite();
             }
+
+            Destroy(this);
         }
     }
 }
