@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mouse_position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         mouse_position = Camera.main.ScreenToWorldPoint(mouse_position);
         Vector3 direction = mouse_position - transform.position;
-        transform.up = new Vector3(mouse_position.x, mouse_position.y, 0).normalized;       
+        transform.up = new Vector2(direction.x, direction.y).normalized;       
     }
 
     void OnDrawGizmos()
