@@ -23,7 +23,7 @@ public class EnnemiSpawner : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             int rand_color = (int) (Random.value * 4);
-            int rand_shape = (int) (Random.value * 2);
+            int rand_shape = (int) (Random.value * 3);
 
             create_ennemi(rand_color, rand_shape);
             

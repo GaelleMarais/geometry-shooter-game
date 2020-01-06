@@ -139,6 +139,7 @@ MonoBehaviour:
   shapes:
   - {fileID: 21300000, guid: 73d596d1e1d09e840bffb4b9ff6defc5, type: 3}
   - {fileID: 21300000, guid: cf26596d7fe750243a6095698ca68c00, type: 3}
+  - {fileID: 21300000, guid: 4c1fbc668c2312f4a802c2a686572da2, type: 3}
   colors:
   - {r: 0.42352945, g: 0.76470596, b: 0.7803922, a: 1}
   - {r: 0.95294124, g: 0.5921569, b: 0.1137255, a: 1}
