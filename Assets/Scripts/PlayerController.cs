@@ -9,14 +9,17 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float bullet_speed;
+    public int health;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 10;
         bullet_speed = 700;
+        health = 3;
+        score = 0;
 
-        // Cursor.visible = false;
     }
 
     void Update()
@@ -69,5 +72,21 @@ public class PlayerController : MonoBehaviour
             go.transform.up = transform.up;
             go.GetComponent<Rigidbody>().AddForce(go.transform.up * bullet_speed);
         }
-    }       
+    } 
+
+    public void get_hurt(){
+        health --;
+        if(health == 0){
+            die();
+        }else{
+            GameObject health_bar = GameObject.Find("HealthBar");
+            health_bar.GetComponent<HealthBar>().remove(health);
+        }
+    } 
+
+    void die(){
+        Debug.Log("gameover");
+        Time.timeScale = 0; 
+        Application.Quit();
+    }    
 }

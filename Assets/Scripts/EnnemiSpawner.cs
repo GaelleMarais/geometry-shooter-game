@@ -30,7 +30,6 @@ public class EnnemiSpawner : MonoBehaviour
             create_ennemi(rand_color, rand_shape);
             if (time_between_spawns > 0.3){
                 time_between_spawns -= 0.1f;
-                Debug.Log(time_between_spawns);
             }
             
         }

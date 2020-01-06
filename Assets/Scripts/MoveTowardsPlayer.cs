@@ -9,7 +9,7 @@ public class MoveTowardsPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 3;
+        speed = 4.5f;
     }
 
     // Update is called once per frame

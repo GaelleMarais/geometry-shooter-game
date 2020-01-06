@@ -34,8 +34,8 @@ public class BulletController : MonoBehaviour
                 player.GetComponent<SpriteController>().update_sprite();
             }
 
-            
+            Destroy(gameObject);            
         }
-        Destroy(gameObject);
+
     }
 }
