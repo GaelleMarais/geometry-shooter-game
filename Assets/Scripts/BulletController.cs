@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     public int color_tag;
     public int shape_tag;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +33,12 @@ public class BulletController : MonoBehaviour
                 player.GetComponent<SpriteController>().color_tag = ennemi.color_tag;
                 player.GetComponent<SpriteController>().shape_tag = ennemi.shape_tag;
                 player.GetComponent<SpriteController>().update_sprite();
+
+                player.GetComponent<PlayerController>().increment_score(100);
             }
 
-            
+            Destroy(gameObject);            
         }
-        Destroy(gameObject);
+
     }
 }

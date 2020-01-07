@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
     public GameObject bullet;
+    public Text score_text;
 
     public float speed;
     public float bullet_speed;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 10;
         bullet_speed = 700;
+        health = 3;
+        score_text.text = "0";
+        Score.value = 0;
 
-        // Cursor.visible = false;
     }
 
     void Update()
@@ -69,5 +75,29 @@ public class PlayerController : MonoBehaviour
             go.transform.up = transform.up;
             go.GetComponent<Rigidbody>().AddForce(go.transform.up * bullet_speed);
         }
-    }       
+    } 
+
+    public void get_hurt(){
+       
+        health --;
+        GameObject.Find("Red").GetComponent<Bleed>().bleed();
+
+        if(health == 0){
+            die();
+        }else{    
+            GameObject.Find("HealthBar").GetComponent<HealthBar>().remove(health);
+        }
+    } 
+
+    void die(){
+        Debug.Log("gameover");
+        Time.timeScale = 0;
+
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
+
+    public void increment_score(int n){
+        Score.value += n;
+        score_text.text = Score.value.ToString();
+    }
 }
