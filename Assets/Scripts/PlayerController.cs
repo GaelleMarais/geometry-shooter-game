@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -9,11 +10,9 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Text score_text;
 
-
     public float speed;
     public float bullet_speed;
     public int health;
-    public int score;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +20,8 @@ public class PlayerController : MonoBehaviour
         speed = 10;
         bullet_speed = 700;
         health = 3;
-        score = 0;
         score_text.text = "0";
+        Score.value = 0;
 
     }
 
@@ -93,12 +92,12 @@ public class PlayerController : MonoBehaviour
     void die(){
         Debug.Log("gameover");
         Time.timeScale = 0;
-        score_text.text = "GAMEOVER\n"+ score.ToString();
-        Application.Quit();
+
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
     public void increment_score(int n){
-        score += n;
-        score_text.text = score.ToString();
+        Score.value += n;
+        score_text.text = Score.value.ToString();
     }
 }
