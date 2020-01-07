@@ -13,4 +13,5 @@ public class EnnemiController : MonoBehaviour
             go.GetComponent<PlayerController>().get_hurt();
         }
     }
+
 }

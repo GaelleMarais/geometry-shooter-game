@@ -75,12 +75,14 @@ public class PlayerController : MonoBehaviour
     } 
 
     public void get_hurt(){
+       
         health --;
+        GameObject.Find("Red").GetComponent<Bleed>().bleed();
+
         if(health == 0){
             die();
-        }else{
-            GameObject health_bar = GameObject.Find("HealthBar");
-            health_bar.GetComponent<HealthBar>().remove(health);
+        }else{    
+            GameObject.Find("HealthBar").GetComponent<HealthBar>().remove(health);
         }
     } 
 
